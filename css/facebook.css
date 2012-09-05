@@ -1,0 +1,155 @@
+
+@import url(http://fonts.googleapis.com/css?family=Racing+Sans+One|Trykker);
+body {
+	background-color: #cde5ff;
+	text-align:center;
+}
+h2 {
+font-size: 25px;
+font-weight: bold;
+padding:10px;
+}
+hr {
+	clear: both;
+	border: 0px;
+	padding: 10px;
+}
+#body_wrap {
+	margin: 2% auto;
+	width: 80%;
+	background: rgba(250,253,255,0.5);
+	padding: 2%;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px
+}
+#control_area #logo {
+	float: left;
+	text-shadow: rgba(0,0,0,0.53) 2px 2px 4px;
+	font: small-caps bold 52px 'Racing Sans One';
+	color: #912723;
+}
+
+#control_area #user_info_area {
+	float: right;
+	width: 50%;
+	font-weight: bold;
+	text-align: right;
+	padding-top: 20px;
+	
+	
+}
+#control_area #user_info_area a {
+	position: relative;
+	}
+#control_area #profile_image {
+	float: right;
+	padding: 0 10px;
+	
+}
+#friend_div h1 {
+	font-size:40px
+}
+#friend_div p {
+	font-size:40px
+}
+#friend_div p #popular_number {
+	font-family: 'Trykker', cursive;
+	font-size:80px
+}
+#relationship_graph_wrap div {
+	float: left;
+}
+
+#age_div #average_age {
+		font-family: 'Trykker', cursive;
+	font-size:60px
+}
+#total_friends {
+	
+font-family: 'Trykker', cursive;
+font-size: 150px;
+font-weight: 400
+}
+.female {
+	background: url(http://friends.porosventures.com/images/mf.png) ;
+	width: 20px;
+	height: 40px;
+	float: right;
+}
+
+.male {
+	background: url(http://friends.porosventures.com/images/mf.png) 20px;
+	width: 20px;
+	height: 40px;
+	float: left;
+}
+#sex_div {
+	width: 100%;
+	
+}
+#wrap_female, #wrap_male {
+	width: 50%;
+	float: left;
+}
+
+.mutual_friend {
+	text-align:left;
+	border: 1px solid gray;
+	margin: 1%;
+	float: left;
+	width: 30%;
+	padding: 5px;
+	background-color: #f2efee;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px
+}
+
+.mutual_friend h3 {
+	font-size: 16px;
+	padding-bottom:4px;
+	font-weight:bold;
+}
+.mutual_friend_image {
+	float: left;
+	padding: 0px 10px 0px 0px;
+	
+}
+.number_callout {
+	font-family: 'Trykker', cursive;
+font-size: 50px;
+font-weight: 400
+}
+a.button_links {
+    -moz-user-select: none;
+    background: #2A49A5;
+    border: 1px solid #082783;
+    box-shadow: 0 1px #4C6BC7 inset;
+    color: white;
+    padding: 3px 5px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 #082783;
+    font: 12px Verdana, sans-serif;
+}
+a.button_links:hover {
+    -moz-user-select: none;
+    background: #3960d9;
+    border: 1px solid #082783;
+    box-shadow: 0 1px #4C6BC7 inset;
+    color: white;
+    padding: 3px 5px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 #082783;
+    font: 12px Verdana, sans-serif;
+}
+
+.xAxis > .tickLabel 
+{
+		white-space:nowrap;
+    margin-top:-40px;
+    -moz-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}

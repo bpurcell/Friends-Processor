@@ -1,0 +1,8 @@
+RewriteEngine on
+
+##RewriteCond %{SERVER_PORT} 80 
+##RewriteCond $1 ^(members|secure)
+##RewriteRule ^(.*)$ https://www.pointrecorder.com/$1 [R=301,L]
+##
+RewriteCond $1 !^(index\.php|fb_channel\.html|javascript|css|images|written_images)
+RewriteRule ^(.*)$ /index.php/$1 [L]
