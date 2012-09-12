@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
      public function index()
      {
          $data['fb_data'] = $this->session->userdata('fb_data'); // This array contains all the user FB information
+         
          if($data['fb_data']['me']):
             redirect(base_url().'home');
         else:
@@ -44,7 +45,9 @@ class Welcome extends CI_Controller {
          
          if($data['fb_data']['me']):
              
-             $friends = $this->facebook_model->get_friends();
+             $friends = $this->facebook_model->get_friends($data['fb_data']['uid']);
+             
+             //return var_dump($friends);
              
              if($friends === true):
                  redirect(base_url().'review_friends/'.$data['fb_data']['uid']);

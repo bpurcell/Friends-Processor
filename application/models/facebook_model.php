@@ -84,16 +84,11 @@ class Facebook_model extends CI_Model {
                                   
                                   
     }
-    function get_friends()
+    function get_friends($uid)
     {
-        $fb_data = $this->session->userdata('fb_data'); // This array contains all the user FB information
-        
-        $uid = $fb_data['me']['id'];
         
         $recent = $this->db->get_where('friends', array('uid1' => $uid), 1,0)->row();
-        
-        
-        
+    
         if(!$recent || $recent->created_on <= (time() - (4*24*60*60))): #4 days worth of difference
         #if($recent->created_on <= (time() - (10))): # 30 seconds
             
@@ -104,7 +99,7 @@ class Facebook_model extends CI_Model {
                                          'query' => 'SELECT uid1, uid2 FROM friend WHERE uid1 = me()',
               ));
               
-              
+              //return $fql;
               
               $count = 0;
               foreach($fql as $key=>$friend):
@@ -127,9 +122,18 @@ class Facebook_model extends CI_Model {
     function check_user_friends($uid)
     {
         $sql = "SELECT count(uid1) as count FROM friends f WHERE mutual_friend_count IS NULL AND uid1 = ?";
-        $count = $this->db->query($sql, $uid)->row()->count;
+        
+        $query = $this->db->query($sql, $uid);
+        //var_dump($query);
+        
+        if($query->num_rows() == 0):
+            return false;
+        else:
+            $count = $query->row()->count;
 
-        return $count;
+            return $count;
+        endif;
+        
     }
     
     function update_friends_blank($uid)
@@ -245,7 +249,7 @@ class Facebook_model extends CI_Model {
         endif;
         */
         
-        /*/  education parse parse 
+        /*/  education parse parse */
         if($user->education != 'a:0:{}' || $user->education != 'N;'):
             
             $education = unserialize($user->education);
@@ -273,7 +277,7 @@ class Facebook_model extends CI_Model {
 
             endforeach;
 
-        endif;*/
+        endif;
         
         //  Location Parsing disabled  
         if($user->current_location != 'a:0:{}' || $user->current_location != 'N;'):
@@ -456,7 +460,7 @@ class Facebook_model extends CI_Model {
     }
     function friends_addresses($uid,$location = 'current_location_id')
     {
-        $sql = "SELECT u.name, l.* FROM friends f LEFT JOIN users u ON u.uid = f.uid2 LEFT JOIN locations l ON l.id = u.".$location." WHERE l.city IS NOT NULL AND f.uid1 = ? ";
+        $sql = "SELECT u.name, l.* FROM friends f LEFT JOIN users u ON u.uid = f.uid2 LEFT JOIN locations l ON l.id = u.".$location." WHERE l.city IS NOT NULL AND lat IS NOT NULL AND f.uid1 = ? GROUP BY u.uid";
         $query = $this->db->query($sql,array($uid));
         return $query;
     }
