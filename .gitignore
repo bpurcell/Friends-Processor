@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 application/config/config.php
 application/config/database.php
 *.DS_Store
+=======
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+>>>>>>> 722175ed33b509a9ddfa416d035d682713c12145
